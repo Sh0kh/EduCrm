@@ -1,10 +1,4 @@
-
-
-
-export default function Home() {
-
-
-
+export default function CeoDashboard() {
     return (
         <>
             Hello

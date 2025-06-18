@@ -2,31 +2,28 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import AppLayout from "./layouts/AppLayout";
 import MainLayout from "./layouts/MainLayout";
-import Home from "./Components/Home/Home";
-import AdminLayout from "./layouts/AdminLayout";
-import ProtectedRoute from "./Components/ProtectedRoute"; // Импорт компонента защиты маршрутов
+import ProtectedRoute from "./Components/ProtectedRoute";
+import Login from "./Components/Login/Login";
+import { routes } from "./Routes/routes";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<AppLayout />}>
-          <Route
-            element={
-              <ProtectedRoute>
-                <AdminLayout />
-              </ProtectedRoute>
-            }
-          >
-
-          </Route>
-          <Route element={<MainLayout />}>
-            <Route index element={<Home />} />
-
+          <Route path="/login" element={<Login />} />
+          <Route element={<ProtectedRoute><MainLayout /></ProtectedRoute>}>
+            {routes.map((route, index) => (
+              <Route
+                key={index}
+                path={route.path}
+                element={route.component}
+              />
+            ))}
           </Route>
         </Route>
-      </Routes>
-    </Router>
+      </Routes >
+    </Router >
   );
 }
 
