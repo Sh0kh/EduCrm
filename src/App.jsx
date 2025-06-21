@@ -5,6 +5,7 @@ import MainLayout from "./layouts/MainLayout";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import Login from "./Components/Login/Login";
 import { routes } from "./Routes/routes";
+import Lead from "./Components/Lead/Lead";
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={<AppLayout />}>
           <Route path="/login" element={<Login />} />
+          <Route path="/lead" element={<Lead />} />
+
           <Route element={<ProtectedRoute><MainLayout /></ProtectedRoute>}>
             {routes.map((route, index) => (
               <Route
