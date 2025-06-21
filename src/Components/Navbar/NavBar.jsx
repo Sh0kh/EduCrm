@@ -31,7 +31,7 @@ export default function Navbar({ onToggleSidebar, isSidebarCollapsed }) {
   }, []);
 
   return (
-    <nav className="w-full flex items-center justify-between px-4 py-2 bg-white shadow-sm sticky top-0 z-50">
+    <nav className="w-full flex items-center justify-between px-2 py-2  bg-white  fixed left-[240px] top-0  z-50">
       <button 
         onClick={onToggleSidebar}
         className="p-2 rounded-lg bg-blue-600 hover:bg-blue-700 transition-colors mr-3"

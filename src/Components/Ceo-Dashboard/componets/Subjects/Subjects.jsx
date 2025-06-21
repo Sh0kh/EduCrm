@@ -20,7 +20,7 @@ export default function SubjectsPage() {
   
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden mt-[20px]">
       <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
         <h1 className="text-xl font-bold text-gray-800">Barcha Fanlar</h1>
       </div>

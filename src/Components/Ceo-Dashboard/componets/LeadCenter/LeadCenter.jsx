@@ -62,7 +62,7 @@ export default function LeadCenter() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center">
+      <div className="min-h-screen  flex items-center justify-center">
         <div className="flex flex-col items-center">
           <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-indigo-600"></div>
           <p className="mt-4 text-gray-600">Ma'lumotlar yuklanmoqda...</p>
@@ -72,7 +72,7 @@ export default function LeadCenter() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+    <div className="min-h-screen ">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-12">

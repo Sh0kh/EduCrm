@@ -57,7 +57,7 @@ export default function Group() {
   ];
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden mt-[20px]">
       {/* Header */}
       <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center flex-wrap gap-4">
         <h1 className="text-xl font-bold text-gray-800">Barcha Guruhlar</h1>
