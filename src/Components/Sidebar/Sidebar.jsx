@@ -22,6 +22,7 @@ import {
 } from "@material-tailwind/react";
 import { NavLink } from "react-router-dom";
 import logo from '../UI/logo.png';
+import SmallLogo from '../../Images/photo_2025-06-21_22-42-35.jpg';
 
 const sidebarItems = [
     {
@@ -99,32 +100,55 @@ const sidebarItems = [
     },
 ];
 
-export default function SideBard() {
+export default function SideBard({ active }) {
     return (
-        <div className="h-screen w-64 bg-white shadow-lg fixed left-0 top-0">
+        <div
+            className={`h-full bg-white  shadow-lg fixed left-0 top-0 
+                transition-all duration-300 ease-in-out 
+                ${!active ? 'w-64' : 'w-20'}`}
+        >
             <Card className="h-full w-full p-4 shadow-none">
-                <div className="mb-8 flex items-center gap-2">
-                    <img src={logo} alt="logo" className="mx-auto mt-[-40px] mb-[-50px]" />
-                   
+                <div className="mb-8 flex items-center justify-center gap-2 transition-all duration-300 ease-in-out">
+                    {!active ? (
+                        <img
+                            src={logo}
+                            alt="logo"
+                            className="mx-auto mt-[-40px] mb-[-50px] opacity-100 transition-opacity duration-300"
+                        />
+                    ) : (
+                        <img
+                            src={SmallLogo}
+                            alt="logo"
+                            className="mt-[-20px] w-[60px] mb-[-50px] opacity-100 transition-opacity duration-300"
+                        />
+                    )}
                 </div>
+
                 <List>
                     {sidebarItems.map((item) => (
                         <NavLink
                             to={item.path}
                             key={item.name}
                             className={({ isActive }) =>
-                                "block" + (isActive ? " bg-blue-50" : "")
+                                "block transition-colors duration-300" + (isActive && !active ? " bg-blue-50" : "")
                             }
                         >
-                            <ListItem className="hover:bg-blue-50 rounded-lg flex items-center justify-between">
-                                <div className="flex items-center">
-                                    <ListItemPrefix>
-                                        {item.icon}
-                                    </ListItemPrefix>
-                                    {item.name}
+                            <ListItem
+                                className={`rounded-lg  flex items-center justify-between transition-all duration-300 ease-in-out ${!active ? "hover:bg-blue-50 w-[100%]" : "w-[45px] h-[46px]"
+                                    }`}
+                            >
+                                <div className="flex items-center gap-2">
+                                    <ListItemPrefix>{item.icon}</ListItemPrefix>
+
+                                    <span
+                                        className={`transition-all duration-300 ease-in-out ${active ? "opacity-0 w-0 overflow-hidden" : "opacity-100 w-auto"
+                                            }`}
+                                    >
+                                        {item.name}
+                                    </span>
                                 </div>
-                               
                             </ListItem>
+
                         </NavLink>
                     ))}
                 </List>

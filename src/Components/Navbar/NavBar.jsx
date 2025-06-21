@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Bars3Icon, MagnifyingGlassIcon, XMarkIcon, ArrowsPointingOutIcon, ArrowsPointingInIcon } from "@heroicons/react/24/solid";
 
-export default function Navbar({ onToggleSidebar, isSidebarCollapsed }) {
+export default function Navbar({ onToggleSidebar, isSidebarCollapsed, setActive }) {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -32,15 +32,15 @@ export default function Navbar({ onToggleSidebar, isSidebarCollapsed }) {
 
   return (
     <nav className="w-full flex items-center justify-between px-2 py-2  bg-white  fixed left-[240px] top-0  z-50">
-      <button 
-        onClick={onToggleSidebar}
+      <button
+        onClick={setActive}
         className="p-2 rounded-lg bg-blue-600 hover:bg-blue-700 transition-colors mr-3"
         aria-label="Toggle sidebar"
       >
         {isSidebarCollapsed ? (
           <Bars3Icon className="h-6 w-6 text-white" />
         ) : (
-         <Bars3Icon className="h-6 w-6 text-white" />
+          <Bars3Icon className="h-6 w-6 text-white" />
         )}
       </button>
 
