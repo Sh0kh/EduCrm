@@ -3,7 +3,6 @@ import AttendanceCal from "../Components/Ceo-Dashboard/componets/Attendance/Atta
 import Attendance from "../Components/Ceo-Dashboard/componets/Attendance/Attendance";
 import ClientCenter from "../Components/Ceo-Dashboard/componets/ClientCenter/ClientCenter";
 import Finance from "../Components/Ceo-Dashboard/componets/Finance/Finance";
-import Fianace from "../Components/Ceo-Dashboard/componets/Finance/Finance";
 import GroupView from "../Components/Ceo-Dashboard/componets/Group/components/GroupView";
 import Group from "../Components/Ceo-Dashboard/componets/Group/Group";
 import LeadCenter from "../Components/Ceo-Dashboard/componets/LeadCenter/LeadCenter";
@@ -20,6 +19,8 @@ import Subjects from "../Components/Ceo-Dashboard/componets/Subjects/Subjects";
 import TeacherView from "../Components/Ceo-Dashboard/componets/Teacher/components/TeacherView";
 import Teacher from "../Components/Ceo-Dashboard/componets/Teacher/Teacher";
 import CenterStudy from "../Components/SuperCeo-Dashboard/CenterStudy/CenterStudy";
+import FinanceCeo from "../Components/SuperCeo-Dashboard/FinanceCeo/FinanceCeo";
+import RatesCenter from "../Components/SuperCeo-Dashboard/RatesCenter/RatesCenter";
 import SuperCeoDashboard from "../Components/SuperCeo-Dashboard/SuperCeo-Dashboard";
 
 export const routes = [
@@ -32,6 +33,16 @@ export const routes = [
     name: 'SuperCeo-Study-Center',
     path: '/Super-admin/Study-center',
     component: <CenterStudy />
+  },
+   {
+    name: 'SuperCeo-Tarif-Center',
+    path: '/Super-admin/rates-center',
+    component: <RatesCenter />
+  },
+  {
+    name: 'SuperCeo-Binance-Center',
+    path: '/Super-admin/finance-center',
+    component: <FinanceCeo />
   },
   {
     name: "Ceo-Dashboard",

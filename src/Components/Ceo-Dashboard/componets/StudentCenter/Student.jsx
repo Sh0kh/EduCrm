@@ -177,10 +177,10 @@ export default function Student() {
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">ID</th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Ism familiya</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Telefon raqam</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Guruh</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Boshlagan vaqti</th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Izoh</th>
+                  <th className="qwerty-m4 px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Telefon raqam</th>
+                  <th className="qwerty-m3 px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Guruh</th>
+                  <th className="qwerty-m2 px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Boshlagan vaqti</th>
+                  <th className="qwerty-m1 px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Izoh</th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Amallar</th>
                 </tr>
               </thead>
@@ -198,14 +198,14 @@ export default function Student() {
                       </td>
                       <td className="px-6 py-4 text-sm font-medium text-gray-900">{student.id}</td>
                       <td className="px-6 py-4 text-sm text-gray-900 capitalize font-medium">{student.name}</td>
-                      <td className="px-6 py-4 text-sm text-gray-700">{student.phone}</td>
-                      <td className="px-6 py-4 text-sm text-gray-700">
+                      <td className="qwerty-m4 px-6 py-4 text-sm text-gray-700">{student.phone}</td>
+                      <td className="qwerty-m3 px-6 py-4 text-sm text-gray-700">
                         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                           {student.group}
                         </span>
                       </td>
-                      <td className="px-6 py-4 text-sm text-gray-700">{formatDate(student.date)}</td>
-                      <td className="px-6 py-4 text-sm">
+                      <td className="qwerty-m2 px-6 py-4 text-sm text-gray-700">{formatDate(student.date)}</td>
+                      <td className="qwerty-m1 px-6 py-4 text-sm">
                         <span className={`px-2 py-1 rounded-full text-xs font-medium ${student.status === "Mavjud emas"
                           ? "bg-red-100 text-red-800"
                           : "bg-green-100 text-green-800"

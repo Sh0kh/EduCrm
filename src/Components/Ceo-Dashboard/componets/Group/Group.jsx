@@ -101,21 +101,20 @@ export default function Group() {
           </div>
         </div>
 
-        {/* Table (with horizontal scroll) */}
-        <div className="max-w-[1200px] overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
+        <div className=" overflow-x-auto">
+          <table className="w-full">
             <thead className="bg-gray-50">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   <input type="checkbox" className="h-4 w-4 rounded text-blue-600 focus:ring-blue-500" />
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nom</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Narxi</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ustoz</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fan</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Talabalar soni</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Boshlangan vaqti</th>
+                <th className=" px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nom</th>
+                <th className=" px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Narxi</th>
+                <th className="qwerty-m4 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ustoz</th>
+                <th className="qwerty-m3  px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fan</th>
+                <th className="qwerty-m2  px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Talabalar soni</th>
+                <th className="qwerty-m1  px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Boshlangan vaqti</th>
                 <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Amallar</th>
               </tr>
             </thead>
@@ -131,11 +130,11 @@ export default function Group() {
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{group.id}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">{group.name}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{group.price}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{group.teacher}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{group.subject}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{group.studentCount} azo</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{group.startDate}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <td className="qwerty-m4 px-6 py-4 whitespace-nowrap text-sm text-gray-700">{group.teacher}</td>
+                  <td className="qwerty-m3  px-6 py-4 whitespace-nowrap text-sm text-gray-700">{group.subject}</td>
+                  <td className="qwerty-m2  px-6 py-4 whitespace-nowrap text-sm text-gray-700">{group.studentCount} azo</td>
+                  <td className="qwerty-m1  px-6 py-4 whitespace-nowrap text-sm text-gray-700">{group.startDate}</td>
+                  <td className=" px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                     <div className="flex justify-end space-x-2">
                       <NavLink to={`/groups/${group.id}`}>
                         <button
@@ -165,7 +164,6 @@ export default function Group() {
           </table>
         </div>
 
-        {/* Pagination */}
         <div className="px-6 py-4 bg-gray-50 flex justify-between items-center">
           <p className="text-sm text-gray-600">
             Jami <span className="font-medium">{groups.length}</span> ta guruhdan{' '}
@@ -184,7 +182,6 @@ export default function Group() {
           </div>
         </div>
 
-        {/* Modals */}
         <CreateGroup
           isOpen={openModal}
           onClose={() => setOpenModal(false)}

@@ -89,7 +89,6 @@ export default function Teacher() {
         </div>
 
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
@@ -99,12 +98,12 @@ export default function Teacher() {
                   <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
                   <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rasm</th>
                   <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ism</th>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Telefon raqam</th>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Login</th>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fan</th>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Xona</th>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Guruhlar soni</th>
-                  <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Amallar</th>
+                  <th scope="col" className="qwerty-m5 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Telefon raqam</th>
+                  <th scope="col" className="qwerty-m4 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Login</th>
+                  <th scope="col" className="qwerty-m3 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fan</th>
+                  <th scope="col" className="qwerty-m2 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Xona</th>
+                  <th scope="col" className="qwerty-m1 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Guruhlar soni</th>
+                  <th scope="col" className=" px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Amallar</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
@@ -127,11 +126,11 @@ export default function Teacher() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{teacher.name}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{teacher.phone}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{teacher.login}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{teacher.subject}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">N/A</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{teacher.groupsCount} ta</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <td className="qwerty-m4 px-6 py-4 whitespace-nowrap text-sm text-gray-500">{teacher.login}</td>
+                    <td className="qwerty-m3 px-6 py-4 whitespace-nowrap text-sm text-gray-500">{teacher.subject}</td>
+                    <td className="qwerty-m2 px-6 py-4 whitespace-nowrap text-sm text-gray-500">N/A</td>
+                    <td className="qwerty-m1 px-6 py-4 whitespace-nowrap text-sm text-gray-500">{teacher.groupsCount} ta</td>
+                    <td className=" px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                       <div className="flex justify-end space-x-2">
                         <NavLink to={`/teacher/${teacher.id}`}>
                           <button
@@ -160,7 +159,6 @@ export default function Teacher() {
                 ))}
               </tbody>
             </table>
-          </table>
         </div>
         <TeacherCreate isOpen={openModal} onClose={() => setOpenModal(false)} />
         <TeacherEdit isOpen={openEditModal} onClose={() => setOpenEditModal(false)} />

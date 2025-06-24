@@ -139,7 +139,6 @@ export default function LeadCenter() {
               </button>
             </div>
 
-            {/* Monthly Data Table */}
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>

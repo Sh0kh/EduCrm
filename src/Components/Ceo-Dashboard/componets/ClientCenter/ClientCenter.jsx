@@ -230,7 +230,8 @@ export default function ClientCenter() {
           </div>
 
           {/* Table */}
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto qwerty">
+            <div className='qwerty'>
             <table className="w-full">
               <thead className="bg-gray-50">
                 <tr>
@@ -244,12 +245,12 @@ export default function ClientCenter() {
                   </th>
                   <th className="px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
                   <th className="px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                  <th className="px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone</th>
-                  <th className="px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Source</th>
-                  <th className="px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Added Date</th>
-                  <th className="px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Subject</th>
-                  <th className="px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Comment</th>
-                  <th className="px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                  <th className="qwerty-m5w px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone</th>
+                  <th className="qwerty-m4 px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Source</th>
+                  <th className="qwerty-m3 px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Added Date</th>
+                  <th className="qwerty-m2 px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Subject</th>
+                  <th className="qwerty-m1 px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Comment</th>
+                  <th className=" px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
@@ -270,29 +271,29 @@ export default function ClientCenter() {
                         <span className="text-sm font-medium text-gray-900">{client.name}</span>
                       </div>
                     </td>
-                    <td className="px-4 py-4 text-sm text-gray-500">
+                    <td className="qwerty-m5 px-4 py-4 text-sm text-gray-500">
                       <div className="flex items-center">
                         <Phone className="w-4 h-4 text-gray-400 mr-2" />
                         {client.phone}
                       </div>
                     </td>
-                    <td className="px-4 py-4">
+                    <td className="qwerty-m4 px-4 py-4">
                       <span className={`px-2 py-1 text-xs rounded-full ${getSourceBadge(client.source)}`}>
                         {client.source}
                       </span>
                     </td>
-                    <td className="px-4 py-4 text-sm text-gray-500">
+                    <td className="qwerty-m3 px-4 py-4 text-sm text-gray-500">
                       <div className="flex items-center">
                         <Calendar className="w-4 h-4 text-gray-400 mr-2" />
                         {client.addedDate}
                       </div>
                     </td>
-                    <td className="px-4 py-4">
+                    <td className="qwerty-m2 px-4 py-4">
                       <span className={`px-2 py-1 text-xs rounded-full ${getSubjectBadge(client.subject)}`}>
                         {client.subject}
                       </span>
                     </td>
-                    <td className="px-4 py-4 text-sm text-gray-500 max-w-xs truncate">
+                    <td className="qwerty-m1 px-4 py-4 text-sm text-gray-500 max-w-xs truncate">
                       <div className="flex items-center">
                         <MessageSquare className="w-4 h-4 text-gray-400 mr-2" />
                         {client.comment}
@@ -333,6 +334,8 @@ export default function ClientCenter() {
                 ))}
               </tbody>
             </table>
+            </div>
+            
           </div>
 
           {/* Footer */}
