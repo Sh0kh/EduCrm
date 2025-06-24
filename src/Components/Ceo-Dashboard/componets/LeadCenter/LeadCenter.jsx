@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Users, Calendar, TrendingUp, Activity } from 'lucide-react';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  Legend
+} from 'recharts';
 
 export default function LeadCenter() {
   const [data, setData] = useState(null);
@@ -17,19 +27,17 @@ export default function LeadCenter() {
       { oy: 'Yanvar', active: 155, yangi: 442, ketganlar: 295 },
       { oy: 'Fevral', active: 186, yangi: 393, ketganlar: 298 },
       { oy: 'Mart', active: 174, yangi: 240, ketganlar: 161 },
-      { oy: 'Aprel', active: 31, yangi: 53, ketganlar: 0 }
+      { oy: 'Aprel', active: 31, yangi: 53, ketganlar: 0 },
     ]
   };
 
   const fetchStatistics = async () => {
     try {
       setLoading(true);
-   
       await new Promise(resolve => setTimeout(resolve, 1000));
       setData(mockData);
     } catch (error) {
-      console.error('Statistika ma\'lumotlarini yuklashda xatolik:', error);
-      // Fallback mock data
+      console.error("Xatolik:", error);
       setData(mockData);
     } finally {
       setLoading(false);
@@ -62,7 +70,7 @@ export default function LeadCenter() {
 
   if (loading) {
     return (
-      <div className="min-h-screen  flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="flex flex-col items-center">
           <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-indigo-600"></div>
           <p className="mt-4 text-gray-600">Ma'lumotlar yuklanmoqda...</p>
@@ -72,12 +80,11 @@ export default function LeadCenter() {
   }
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">O'quvchilar Statistikasi</h1>
-       
         </div>
 
         {/* Summary Cards */}
@@ -103,12 +110,12 @@ export default function LeadCenter() {
           />
         </div>
 
-        {/* Monthly Statistics */}
+        {/* Filter + Table */}
         <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
           <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-6">
             <h2 className="text-2xl font-bold">Statistika Ma'lumotlari {selectedYear}</h2>
           </div>
-          
+
           <div className="p-6">
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -124,7 +131,7 @@ export default function LeadCenter() {
             </div>
 
             <div className="bg-yellow-50 rounded-lg p-4 mb-6">
-              <button 
+              <button
                 onClick={fetchStatistics}
                 className="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-colors duration-200"
               >
@@ -167,6 +174,26 @@ export default function LeadCenter() {
                 </tbody>
               </table>
             </div>
+
+            {/* Chart */}
+            <div className="mt-12">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">Oylik Tahlil Grafik Ko'rinishda</h3>
+              <div className="w-full h-[400px] bg-white rounded-xl shadow-lg p-4">
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart data={data?.monthlyData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="oy" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Line type="monotone" dataKey="active" stroke="#10B981" strokeWidth={2} name="Faollar" />
+                    <Line type="monotone" dataKey="yangi" stroke="#3B82F6" strokeWidth={2} name="Yangi" />
+                    <Line type="monotone" dataKey="ketganlar" stroke="#EF4444" strokeWidth={2} name="Ketganlar" />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

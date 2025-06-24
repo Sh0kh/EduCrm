@@ -19,109 +19,121 @@ import SubjectView from "../Components/Ceo-Dashboard/componets/Subjects/componen
 import Subjects from "../Components/Ceo-Dashboard/componets/Subjects/Subjects";
 import TeacherView from "../Components/Ceo-Dashboard/componets/Teacher/components/TeacherView";
 import Teacher from "../Components/Ceo-Dashboard/componets/Teacher/Teacher";
+import CenterStudy from "../Components/SuperCeo-Dashboard/CenterStudy/CenterStudy";
+import SuperCeoDashboard from "../Components/SuperCeo-Dashboard/SuperCeo-Dashboard";
 
 export const routes = [
-    {
-        name: "Ceo-Dashboard",
-        path: "/",
-        component: <CeoDashboard />,
-    },
-     {
-        name: "LeadCenter",
-        path: "/lead-center",
-        component: <LeadCenter />,
-    },
-        {
-        name: "Client-center",
-        path: "/client-center",
-        component: <ClientCenter />,
-    },
-      {
-        name: "Student-center",
-        path: "/student",
-        component: <Student />,
-    },
-     {
-        name: "Student-center",
-        path: "/student/:ID",
-        component: <StudentView />,
-    },
-    {
-        name: "Student-center",
-        path: "/studentpayment/:ID",
-        component: <StudentPayement />,
-    },
-       {
-        name: "ArchiveStudent-center",
-        path: "/archiveStudents",
-        component: <ArchiveStudents />,
-    },
-      {
-        name: "Group",
-        path: "/groups",
-        component: <Group />,
-    },
-     {
-        name: "Group",
-        path: "/groups/:ID",
-        component: <GroupView />,
-    }, 
-    {
-        name: "Teacher",
-        path: "/teacher",
-        component: <Teacher />,
-    },
-       {
-        name: "Teacher",
-        path: "/teacher/:ID",
-        component: <TeacherView />,
-    },
-      {
-        name: "Subjects",
-        path: "/subjects",
-        component: <Subjects/>,
-    },
-      {
-        name: "Subjects",
-        path: "/subjects/:ID",
-        component: <SubjectView/>,
-    },
-   {  
-     name: "Subjects",
-     path: "/subjects/:ID/techers",
-     component: <SubjectTeacher/>,
-    },
-       {  
-     name: "Attandance",
-     path: "/attendance",
-     component: <Attendance/>,
-    },
-        {  
-     name: "Attandance",
-     path: "/attendanceCal",
-     component: <AttendanceCal/>,
-    }, 
-    {  
-     name: "Finance",
-     path: "/finance",
-     component: <Finance/>,
-    },
-     {  
-     name: "Payment",
-     path: "/mypayment",
-     component: <Payment/>,
-    },
-       {  
-     name: "sms",
-     path: "/sms-xabar",
-     component: <Sms/>,
-    },
-         {  
-     name: "set",
-     path: "/sozlamalar",
-     component: <Settings/>,
-    },
-    
-        
+  {
+    name: 'SuperCeo-Dashboard',
+    path: '/Super-admin/dashboard',
+    component: <SuperCeoDashboard />
+  },
+  {
+    name: 'SuperCeo-Study-Center',
+    path: '/Super-admin/Study-center',
+    component: <CenterStudy />
+  },
+  {
+    name: "Ceo-Dashboard",
+    path: "/",
+    component: <CeoDashboard />,
+  },
+  {
+    name: "LeadCenter",
+    path: "/lead-center",
+    component: <LeadCenter />,
+  },
+  {
+    name: "Client-center",
+    path: "/client-center",
+    component: <ClientCenter />,
+  },
+  {
+    name: "Student-center",
+    path: "/student",
+    component: <Student />,
+  },
+  {
+    name: "Student-center",
+    path: "/student/:ID",
+    component: <StudentView />,
+  },
+  {
+    name: "Student-center",
+    path: "/studentpayment/:ID",
+    component: <StudentPayement />,
+  },
+  {
+    name: "ArchiveStudent-center",
+    path: "/archiveStudents",
+    component: <ArchiveStudents />,
+  },
+  {
+    name: "Group",
+    path: "/groups",
+    component: <Group />,
+  },
+  {
+    name: "Group",
+    path: "/groups/:ID",
+    component: <GroupView />,
+  },
+  {
+    name: "Teacher",
+    path: "/teacher",
+    component: <Teacher />,
+  },
+  {
+    name: "Teacher",
+    path: "/teacher/:ID",
+    component: <TeacherView />,
+  },
+  {
+    name: "Subjects",
+    path: "/subjects",
+    component: <Subjects />,
+  },
+  {
+    name: "Subjects",
+    path: "/subjects/:ID",
+    component: <SubjectView />,
+  },
+  {
+    name: "Subjects",
+    path: "/subjects/:ID/techers",
+    component: <SubjectTeacher />,
+  },
+  {
+    name: "Attandance",
+    path: "/attendance",
+    component: <Attendance />,
+  },
+  {
+    name: "Attandance",
+    path: "/attendanceCal",
+    component: <AttendanceCal />,
+  },
+  {
+    name: "Finance",
+    path: "/finance",
+    component: <Finance />,
+  },
+  {
+    name: "Payment",
+    path: "/mypayment",
+    component: <Payment />,
+  },
+  {
+    name: "sms",
+    path: "/sms-xabar",
+    component: <Sms />,
+  },
+  {
+    name: "set",
+    path: "/sozlamalar",
+    component: <Settings />,
+  },
+
+
 
 ]

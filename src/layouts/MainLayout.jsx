@@ -7,14 +7,13 @@ export default function MainLayout() {
     const [active, setActive] = useState(false);
 
     return (
-        <div className="flex w-full min-h-screen bg-gray-50">
+        <div className="flex w-full min-h-screen bg-[#F6F6F9]">
             <SideBard active={active} />
-
             <div
-                className={`transition-all duration-300 ease-in-out w-full mt-[60px] ${!active ? "ml-[280px]" : "ml-[100px]"
+                className={`transition-all duration-300 ease-in-out w-full mt-[60px] ${!active ? "ml-[255px]" : "ml-[100px]"
                     }`}
             >
-                <Navbar setActive={() => setActive(!active)} />
+                <Navbar active={active} setActive={() => setActive(!active)} />
                 <Outlet />
             </div>
         </div>

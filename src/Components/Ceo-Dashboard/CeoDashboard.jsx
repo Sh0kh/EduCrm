@@ -2,19 +2,19 @@ import { LineChart, Line, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 import { GraduationCap, Building, Award, DollarSign } from 'lucide-react';
 
 const data = [
-  { month: 'January', value: 160000000 },
-  { month: 'February', value: 180000000 },
-  { month: 'March', value: 180000000 },
-  { month: 'April', value: 22000000 },
-  { month: 'May', value: 8000000 },
-  { month: 'June', value: 2000000 },
-  { month: 'July', value: 0 },
-  { month: 'August', value: 0 }
+    { month: 'January', value: 160000000 },
+    { month: 'February', value: 180000000 },
+    { month: 'March', value: 180000000 },
+    { month: 'April', value: 22000000 },
+    { month: 'May', value: 8000000 },
+    { month: 'June', value: 2000000 },
+    { month: 'July', value: 0 },
+    { month: 'August', value: 0 }
 ];
 
 export default function CeoDashboard() {
     return (
-        <div className="min-h-screen bg-gray-50 p-6">
+        <div className="min-h-screen p-6 mt-[10px]">
             {/* Header */}
             <div className="flex items-center justify-between mb-8">
                 <h1 className="text-3xl font-bold text-gray-800">Statistika</h1>
@@ -83,26 +83,26 @@ export default function CeoDashboard() {
             {/* Chart Section */}
             <div className="bg-white rounded-xl p-6 shadow-sm">
                 <h2 className="text-xl font-semibold text-gray-800 mb-6">Oylik Tushumlar - 2025</h2>
-                
+
                 <div className="h-80">
                     <ResponsiveContainer width="100%" height="100%">
                         <LineChart data={data}>
-                            <XAxis 
-                                dataKey="month" 
+                            <XAxis
+                                dataKey="month"
                                 axisLine={false}
                                 tickLine={false}
                                 tick={{ fontSize: 12, fill: '#9CA3AF' }}
                             />
-                            <YAxis 
+                            <YAxis
                                 axisLine={false}
                                 tickLine={false}
                                 tick={{ fontSize: 12, fill: '#9CA3AF' }}
                                 tickFormatter={(value) => `${value / 1000000} M`}
                             />
-                            <Line 
-                                type="monotone" 
-                                dataKey="value" 
-                                stroke="#10B981" 
+                            <Line
+                                type="monotone"
+                                dataKey="value"
+                                stroke="#10B981"
                                 strokeWidth={3}
                                 dot={{ fill: '#10B981', strokeWidth: 2, r: 4 }}
                                 activeDot={{ r: 6, fill: '#10B981' }}

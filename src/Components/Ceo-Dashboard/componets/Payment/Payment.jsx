@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Search, CreditCard } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
-export default function Payment () {
+export default function Payment() {
   const [selectedGroup, setSelectedGroup] = useState('');
   const [selectedYear, setSelectedYear] = useState('2025');
   const [selectedMonth, setSelectedMonth] = useState('June');
@@ -10,13 +10,13 @@ export default function Payment () {
 
   // Sample student data
   const students = [
-    { id: 1, name: "Abdullayev Akmal", group:"Matematika | Toq | 14:00", amount: 850000, status: "To'lanmagan", phone: "+998901234567" },
-  
+    { id: 1, name: "Abdullayev Akmal", group: "Matematika | Toq | 14:00", amount: 850000, status: "To'lanmagan", phone: "+998901234567" },
+
   ];
 
   const groups = [
     "Ona tili | Juft | 16:00",
-    "Matematika | Toq | 14:00", 
+    "Matematika | Toq | 14:00",
     "Tarix | TOQ | 18:00 DTM gruppa",
     "Ingliz tili | TOQ | 8:00",
     "Biologiya | Juft | 13:00"
@@ -48,16 +48,22 @@ export default function Payment () {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
+    <div className='min-h-screen p-6 mt-[10px]'>
+      <div className="flex justify-between items-center flex-wrap gap-2 mb-[30px]">
+        <h1 className="text-3xl font-bold text-gray-800">To'lovlarni yig'ish</h1>
+        <nav className="text-gray-500 text-sm">
+          <span>Davomat</span>
+          <span className="mx-2">/</span>
+          <span>statistika</span>
+        </nav>
+      </div>
+      <div className="bg-gray-100">
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-          <h1 className="text-3xl font-bold text-gray-900 mb-8">To'lovlarni yig'ish</h1>
-          
+
           {/* Filter */}
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
             <div>
-              <select 
+              <select
                 value={selectedGroup}
                 onChange={(e) => setSelectedGroup(e.target.value)}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -70,7 +76,7 @@ export default function Payment () {
             </div>
 
             <div>
-              <select 
+              <select
                 value={selectedYear}
                 onChange={(e) => setSelectedYear(e.target.value)}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -82,7 +88,7 @@ export default function Payment () {
             </div>
 
             <div>
-              <select 
+              <select
                 value={selectedMonth}
                 onChange={(e) => setSelectedMonth(e.target.value)}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -93,26 +99,26 @@ export default function Payment () {
               </select>
             </div>
 
-   <div className='flex justify-start gap-4'>
+            <div className='flex justify-start gap-4'>
 
-             <div>
-              <button
-                onClick={handleSearch}
-                className="w-[100px] bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-              >
-                Qidirish
-              </button>
-            </div>
+              <div>
+                <button
+                  onClick={handleSearch}
+                  className="w-[100px] bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                >
+                  Qidirish
+                </button>
+              </div>
 
-            <div>
-              <button
-                onClick={() => setShowResults(false)}
-                className="w-[100px] bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors font-medium"
-              >
-                Qaytish
-              </button>
+              <div>
+                <button
+                  onClick={() => setShowResults(false)}
+                  className="w-[100px] bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors font-medium"
+                >
+                  Qaytish
+                </button>
+              </div>
             </div>
-   </div>
           </div>
         </div>
 
@@ -155,13 +161,13 @@ export default function Payment () {
                       </td>
                       <td className="px-6 py-4">
                         <NavLink to={`/studentpayment/${student.id}`}>
-                        <button
-                          onClick={() => handlePayment(student.id, student.name)}
-                          className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-colors flex items-center gap-2"
-                        >
-                          <CreditCard className="w-4 h-4" />
-                          To'lov qilish
-                        </button>
+                          <button
+                            onClick={() => handlePayment(student.id, student.name)}
+                            className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-colors flex items-center gap-2"
+                          >
+                            <CreditCard className="w-4 h-4" />
+                            To'lov qilish
+                          </button>
                         </NavLink>
                       </td>
                     </tr>

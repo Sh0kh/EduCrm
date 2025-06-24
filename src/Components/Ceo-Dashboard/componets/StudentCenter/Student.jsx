@@ -67,7 +67,7 @@ export default function Student() {
   };
 
   const handleSaveEdit = (updatedStudent) => {
-    setStudents(students.map(s => 
+    setStudents(students.map(s =>
       s.id === updatedStudent.id ? updatedStudent : s
     ));
     setIsEditModalOpen(false);
@@ -103,24 +103,19 @@ export default function Student() {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto p-6">
         {/* Header */}
-        <div className="bg-white rounded-lg shadow-sm border mb-6">
-          <div className="p-6 border-b">
-            <div className="flex items-center justify-between">
-              <h1 className="text-2xl font-bold text-gray-900">Talabalar</h1>
-              <nav className="text-sm text-gray-500 flex gap-4">
-                <span>
-                Talabalar / Barcha talabalar
+        <div className="flex items-center justify-between">
+          <h1 className="text-3xl font-bold text-gray-900">Talabalar</h1>
+          <nav className="text-sm text-gray-500 flex gap-4">
+            <span>
+              Talabalar / Barcha talabalar
+            </span>
+            {/* <NavLink to="/archiveStudents">
+              <span>Bitirgan talabalar </span>
+            </NavLink> */}
+          </nav>
 
-                </span>
-                <NavLink to="/archiveStudents">
-                <span>Bitirgan talabalar </span>
-                </NavLink>
-
-              </nav>
-              
-            </div>
-          </div>
-          
+        </div>
+        <div className="bg-white rounded-lg shadow-sm border mb-6 mt-[30px]">
           <div className="p-6">
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
               <div className="relative flex-1 max-w-md">
@@ -134,7 +129,7 @@ export default function Student() {
                 />
               </div>
               <div className="flex gap-3">
-                <button 
+                <button
                   onClick={() => setSearchTerm('')}
                   className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-200 font-medium"
                 >
@@ -211,28 +206,27 @@ export default function Student() {
                       </td>
                       <td className="px-6 py-4 text-sm text-gray-700">{formatDate(student.date)}</td>
                       <td className="px-6 py-4 text-sm">
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                          student.status === "Mavjud emas" 
-                            ? "bg-red-100 text-red-800" 
-                            : "bg-green-100 text-green-800"
-                        }`}>
+                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${student.status === "Mavjud emas"
+                          ? "bg-red-100 text-red-800"
+                          : "bg-green-100 text-green-800"
+                          }`}>
                           {student.status}
                         </span>
                       </td>
                       <td className="px-6 py-4 text-sm font-medium">
                         <div className="flex items-center gap-2">
-                            <NavLink to={`/student/${student.id}`}>
-                            
-                          <button
-                            onClick={() => handleViewDetail(student)}
-                            className="inline-flex items-center p-2 text-blue-600 hover:text-blue-900 hover:bg-blue-50 rounded-lg transition-all duration-200"
-                            title="Batafsil"
-                            aria-label="View details"
-                          >
-                            <Eye size={16} />
-                          </button>
+                          <NavLink to={`/student/${student.id}`}>
 
-                         </NavLink>
+                            <button
+                              onClick={() => handleViewDetail(student)}
+                              className="inline-flex items-center p-2 text-blue-600 hover:text-blue-900 hover:bg-blue-50 rounded-lg transition-all duration-200"
+                              title="Batafsil"
+                              aria-label="View details"
+                            >
+                              <Eye size={16} />
+                            </button>
+
+                          </NavLink>
 
                           <button
                             onClick={() => handleEdit(student)}
@@ -243,16 +237,16 @@ export default function Student() {
                             <Edit size={16} />
                           </button>
 
-                          
+
                           <NavLink to={`/studentpayment/${student.id}`}>
-                          <button
-                            onClick={() => handlePayment(student)}
-                            className="inline-flex items-center p-2 text-purple-600 hover:text-purple-900 hover:bg-purple-50 rounded-lg transition-all duration-200"
-                            title="To'lov qilish"
-                            aria-label="Make payment"
-                          >
-                            <CreditCard size={16} />
-                          </button>
+                            <button
+                              onClick={() => handlePayment(student)}
+                              className="inline-flex items-center p-2 text-purple-600 hover:text-purple-900 hover:bg-purple-50 rounded-lg transition-all duration-200"
+                              title="To'lov qilish"
+                              aria-label="Make payment"
+                            >
+                              <CreditCard size={16} />
+                            </button>
                           </NavLink>
                         </div>
                       </td>
@@ -293,13 +287,13 @@ export default function Student() {
                 {selectedStudents.length} ta talaba tanlangan
               </span>
               <div className="flex gap-2">
-                <button 
+                <button
                   onClick={handleExport}
                   className="px-3 py-1 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-sm"
                 >
                   Eksport qilish
                 </button>
-                <button 
+                <button
                   onClick={handleDeleteSelected}
                   className="px-3 py-1 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors text-sm"
                 >

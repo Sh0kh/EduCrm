@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
+import logo from '../UI/logo.png';
+import SmallLogo from '../../Images/photo_2025-06-21_22-42-35.jpg';
 import { Bars3Icon, MagnifyingGlassIcon, XMarkIcon, ArrowsPointingOutIcon, ArrowsPointingInIcon } from "@heroicons/react/24/solid";
 
-export default function Navbar({ onToggleSidebar, isSidebarCollapsed, setActive }) {
+export default function Navbar({ onToggleSidebar, isSidebarCollapsed, setActive, active }) {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+
+
 
   // Fullscreen toggle function
   const toggleFullScreen = () => {
@@ -31,21 +35,35 @@ export default function Navbar({ onToggleSidebar, isSidebarCollapsed, setActive 
   }, []);
 
   return (
-    <nav className="w-full flex items-center justify-between px-2 py-2  bg-white  fixed left-[240px] top-0  z-50">
-      <button
-        onClick={setActive}
-        className="p-2 rounded-lg bg-blue-600 hover:bg-blue-700 transition-colors mr-3"
-        aria-label="Toggle sidebar"
-      >
-        {isSidebarCollapsed ? (
-          <Bars3Icon className="h-6 w-6 text-white" />
-        ) : (
-          <Bars3Icon className="h-6 w-6 text-white" />
-        )}
-      </button>
-
-      <div className="flex-1 max-w-xl">
-        <div className="relative flex items-center">
+    <nav className="w-full flex items-center justify-between px-2 py-2  bg-white  fixed left-0 top-0  z-50 border-b-[#f3f3f4] border-b-[1px]">
+      <div className={`flex items-center max-w-xl ${active ? 'gap-[10px]' : 'gap-[40px]'}`}>
+        <div className=" flex items-center justify-center gap-2 transition-all duration-300 ease-in-out">
+          {!active ? (
+            <img
+              src={logo}
+              alt="logo"
+              className="mx-auto ml-[40px] w-[150px] opacity-100 transition-opacity duration-300"
+            />
+          ) : (
+            <img
+              src={SmallLogo}
+              alt="logo"
+              className=" w-[50px] ml-[15px]  opacity-100 transition-opacity duration-300"
+            />
+          )}
+        </div>
+        <button
+          onClick={setActive}
+          className="p-2 rounded-lg bg-blue-600 hover:bg-blue-700 transition-colors mr-3"
+          aria-label="Toggle sidebar"
+        >
+          {isSidebarCollapsed ? (
+            <Bars3Icon className="h-6 w-6 text-white" />
+          ) : (
+            <Bars3Icon className="h-6 w-6 text-white" />
+          )}
+        </button>
+        <div className="relative flex items-center ">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" />
           </div>

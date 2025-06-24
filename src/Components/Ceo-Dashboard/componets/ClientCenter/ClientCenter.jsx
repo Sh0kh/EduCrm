@@ -15,10 +15,10 @@ export default function ClientCenter() {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [selectedClient, setSelectedClient] = useState(null);
 
-    const [modalOpen, setModalOpen] = useState(false);
-  
- const [deleteModalOpen, setDeleteModalOpen] = useState(false);
-  
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+
   const clientToDelete = {
     name: "Toyirjonova Idpoloy",
     details: "Telefon: +998 91 802 01 47\nGuruh: Matematika - Dushanba/Chorshanba"
@@ -81,10 +81,10 @@ export default function ClientCenter() {
     const newClient = {
       id: Math.max(...clients.map(c => c.id), 0) + 1,
       ...clientData,
-      addedDate: new Date().toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: '2-digit', 
-        day: '2-digit' 
+      addedDate: new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
       }) + ', ' + new Date().toLocaleTimeString('en-US', {
         hour: '2-digit',
         minute: '2-digit'
@@ -97,7 +97,7 @@ export default function ClientCenter() {
 
   // Update existing client
   const handleUpdateClient = (updatedData) => {
-    setClients(clients.map(client => 
+    setClients(clients.map(client =>
       client.id === updatedData.id ? updatedData : client
     ));
     setEditingClient(null);
@@ -112,8 +112,8 @@ export default function ClientCenter() {
 
   // Toggle client status
   const handleToggleStatus = (clientId) => {
-    setClients(clients.map(client => 
-      client.id === clientId 
+    setClients(clients.map(client =>
+      client.id === clientId
         ? { ...client, isActive: !client.isActive }
         : client
     ));
@@ -128,8 +128,8 @@ export default function ClientCenter() {
   };
 
   const handleSelectClient = (clientId) => {
-    setSelectedClients(prev => 
-      prev.includes(clientId) 
+    setSelectedClients(prev =>
+      prev.includes(clientId)
         ? prev.filter(id => id !== clientId)
         : [...prev, clientId]
     );
@@ -176,27 +176,21 @@ export default function ClientCenter() {
   }
 
   return (
-    <div className="min-h-screen mt-[20px]">
+    <div className="min-h-screen p-6 mt-[10px]">
       {/* Header */}
-      <div className="bg-white shadow-sm border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900">Clients</h1>
-              <div className="flex items-center mt-2 text-sm text-gray-500">
-                <span>Clients</span>
-                <span className="mx-2">/</span>
-                <span className="text-gray-400">All Clients</span>
-              </div>
-            </div>
-          </div>
+      <div className='flex items-center justify-between'>
+        <h1 className="text-3xl font-bold text-gray-900">Clients</h1>
+        <div className="flex items-center  mt-2 text-sm text-gray-500">
+          <span>Mijozlar</span>
+          <span className="mx-2">/</span>
+          <span className="text-gray-400">All Clients</span>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="mt-[30px]">
         {/* Search and Actions */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 mb-8">
-          <div className="p-6">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 mb-5">
+          <div className="p-3">
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
               <div className="flex-1 max-w-md">
                 <div className="relative">
@@ -211,7 +205,7 @@ export default function ClientCenter() {
                 </div>
               </div>
               <div className="flex gap-3">
-                <button 
+                <button
                   className="flex items-center px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                   onClick={() => setIsCreateModalOpen(true)}
                 >
@@ -307,27 +301,27 @@ export default function ClientCenter() {
                     <td className="px-4 py-4 text-sm font-medium">
                       <div className="flex space-x-2">
                         <button
-                            onClick={() => handleEditClient({
-          name: "John Doe",
-          source: "Social media",
-          phone: "+998901234567",
-          subject: "Matematika",
-          comment: "Regular student"
-        })}
+                          onClick={() => handleEditClient({
+                            name: "John Doe",
+                            source: "Social media",
+                            phone: "+998901234567",
+                            subject: "Matematika",
+                            comment: "Regular student"
+                          })}
                           className="text-blue-600 hover:text-blue-900"
                           title="Edit"
                         >
                           <Edit className="w-5 h-5" />
                         </button>
                         <button
-                           onClick={() => setModalOpen(true)}
+                          onClick={() => setModalOpen(true)}
                           className={client.isActive ? "text-orange-600 hover:text-orange-900" : "text-green-600 hover:text-green-900"}
                           title={client.isActive ? "Deactivate" : "Activate"}
                         >
                           {client.isActive ? <UserX className="w-5 h-5" /> : <UserCheck className="w-5 h-5" />}
                         </button>
                         <button
-                           onClick={() => setDeleteModalOpen(true)}
+                          onClick={() => setDeleteModalOpen(true)}
                           className="text-red-600 hover:text-red-900"
                           title="Delete"
                         >
@@ -365,21 +359,21 @@ export default function ClientCenter() {
         onSubmit={handleCreateClient}
       />
 
-    
 
-       <ClientEdit
+
+      <ClientEdit
         isOpen={isEditModalOpen}
         onClose={() => setIsEditModalOpen(false)}
         onSubmit={handleSubmitEdit}
         initialData={selectedClient}
       />
 
-        <ClientActive
+      <ClientActive
         open={modalOpen}
         onClose={() => setModalOpen(false)}
         clientData={clientData}
       />
-         <ClientDelete
+      <ClientDelete
         open={deleteModalOpen}
         onClose={() => setDeleteModalOpen(false)}
         onConfirm={handleDeleteConfirm}

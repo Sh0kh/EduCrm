@@ -55,7 +55,7 @@ export default function Finance() {
 
   // All payment data for chart
   const allPaymentData = [
-    { name: '2025-01', value: 5210000 }, 
+    { name: '2025-01', value: 5210000 },
     { name: '2025-02', value: 1030000 },
     { name: '2025-03', value: 1030000 },
     { name: '2025-04', value: 350000 },
@@ -75,7 +75,7 @@ export default function Finance() {
   // Filter function
   const filteredPayments = paymentHistory.filter(payment => {
     let matches = true;
-    
+
     if (studentName && !payment.studentName.toLowerCase().includes(studentName.toLowerCase())) {
       matches = false;
     }
@@ -94,7 +94,7 @@ export default function Finance() {
     if (endDate && payment.date > endDate) {
       matches = false;
     }
-    
+
     return matches;
   });
 
@@ -127,26 +127,30 @@ export default function Finance() {
   };
 
   return (
-    <div className="bg-white min-h-screen">
-      <div className="px-6 py-4 border-b border-gray-200">
-        <h1 className="text-xl font-bold text-gray-800">To'lov malumotlari</h1>
+    <div className='min-h-screen p-6 mt-[10px]'>
+      <div className="">
+        <h1 className="text-2xl font-bold text-gray-800">To'lov malumotlari</h1>
       </div>
 
-      <div className="px-6 py-4 grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white border-l-4 border-blue-500 p-4">
-          <p className="text-sm text-gray-600 mb-1">To'lovlar miqdori:</p>
-          <span className="text-2xl font-bold text-gray-800">{getTotalAmount()}</span>
-          <div className="mt-2 text-sm text-gray-500">
-            {studentName && (
-              <p className="font-medium text-blue-600">Student: {studentName}</p>
-            )}
-            <p>Filtr: 2025-06-01 dan</p>
-            <p>2025-06-21 gacha,</p>
-            <p>To'lov turi: {selectedPaymentType || 'Barcha'}</p>
+      <div className=" py-4 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className='flex items-center gap-[10px] flex-col w-full'>
+          <div className="bg-white w-full border-l-4 rounded-[10px] h-fit border-blue-500 p-4">
+            <p className="text-sm text-gray-600 mb-1">To'lovlar miqdori:</p>
+            <span className="text-2xl font-bold text-gray-800">{getTotalAmount()}</span>
+          </div>
+          <div className="bg-white w-full border-l-4 rounded-[10px] h-fit border-blue-500 p-4">
+            <div className="mt-2 text-sm text-gray-500">
+              {studentName && (
+                <p className="font-medium text-blue-600">Student: {studentName}</p>
+              )}
+              <p>Filtr: 2025-06-01 dan</p>
+              <p>2025-06-21 gacha,</p>
+              <p>To'lov turi: {selectedPaymentType || 'Barcha'}</p>
+            </div>
           </div>
         </div>
 
-        <div className="bg-white p-4">
+        <div className="bg-white p-4 rounded-[8px]">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-lg font-medium text-gray-800">
               {studentName ? `${studentName} - To'lov dinamikasi` : 'Joriy oylik tushumlar'}
@@ -163,28 +167,28 @@ export default function Finance() {
               <AreaChart data={chartData}>
                 <defs>
                   <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#3B82F6" stopOpacity={0.3}/>
-                    <stop offset="95%" stopColor="#3B82F6" stopOpacity={0}/>
+                    <stop offset="5%" stopColor="#3B82F6" stopOpacity={0.3} />
+                    <stop offset="95%" stopColor="#3B82F6" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
-                <XAxis 
-                  dataKey="name" 
+                <XAxis
+                  dataKey="name"
                   axisLine={false}
                   tickLine={false}
                   tick={{ fontSize: 12, fill: '#6B7280' }}
                 />
-                <YAxis 
+                <YAxis
                   axisLine={false}
                   tickLine={false}
                   tick={{ fontSize: 12, fill: '#6B7280' }}
                   tickFormatter={(value) => `${(value / 1000)}k`}
                 />
-                <Tooltip 
+                <Tooltip
                   formatter={(value) => [`${value.toLocaleString()} so'm`, studentName ? 'To\'lov' : 'Tushumllar']}
                   labelStyle={{ color: '#374151' }}
-                  contentStyle={{ 
-                    backgroundColor: 'white', 
+                  contentStyle={{
+                    backgroundColor: 'white',
                     border: '1px solid #E5E7EB',
                     borderRadius: '8px',
                     boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
@@ -203,8 +207,8 @@ export default function Finance() {
         </div>
       </div>
 
-      <div className="px-6 py-4 bg-gray-50">
-        <h2 className="text-lg font-medium mb-4 text-gray-800">Filter</h2>
+      <div className="px-6 py-4 bg-[white] shadow rounded-[10px]">
+        <h2 className="text-2xl font-medium mb-4 text-gray-800">Filter</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Date Range */}
           <div>
@@ -368,11 +372,10 @@ export default function Finance() {
                         {new Date(payment.date).toLocaleDateString('uz-UZ')}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                          payment.status === 'To\'langan' 
-                            ? 'bg-green-100 text-green-800' 
-                            : 'bg-red-100 text-red-800'
-                        }`}>
+                        <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${payment.status === 'To\'langan'
+                          ? 'bg-green-100 text-green-800'
+                          : 'bg-red-100 text-red-800'
+                          }`}>
                           {payment.status}
                         </span>
                       </td>
@@ -381,7 +384,7 @@ export default function Finance() {
                 </tbody>
               </table>
             </div>
-            
+
             {filteredPayments.length === 0 && (
               <div className="text-center py-8">
                 <p className="text-gray-500">Hech qanday to'lov ma'lumoti topilmadi</p>

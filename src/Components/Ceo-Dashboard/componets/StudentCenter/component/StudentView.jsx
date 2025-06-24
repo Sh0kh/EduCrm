@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { User, Phone, Calendar, ChevronDown, ChevronUp } from 'lucide-react';
 
 
-export default function StudentView(){
+export default function StudentView() {
   const { ID } = useParams();
   const [student, setStudent] = useState(null);
   const [activeTab, setActiveTab] = useState('profile');
@@ -31,10 +31,10 @@ export default function StudentView(){
       },
       status: "Active"
     };
-    
+
     // Mock student image (aslida API dan keladi)
     const mockImage = "https://marketplace.canva.com/OEQ9I/MAEuj_OEQ9I/1/tl/canva-buildable-instagram-ui-filled-person-icon-MAEuj_OEQ9I.png";
-    
+
     setStudent(mockStudent);
     setStudentImage(mockImage);
   }, [ID]);
@@ -43,9 +43,16 @@ export default function StudentView(){
 
   return (
     <div className="bg-gray-50 min-h-screen p-6">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-2xl font-bold text-gray-800 mb-6">Talaba ma'lumotlari</h1>
-        
+      <div className=" mx-auto">
+        <div className='flex items-center justify-between mb-6'>
+          <h1 className="text-2xl font-bold text-gray-800 ">Talaba ma'lumotlari</h1>
+          <nav className="text-gray-500 text-sm">
+            <span>Oquvchilar</span>
+            <span className="mx-2">/</span>
+            <span>statistika</span>
+          </nav>
+        </div>
+
         {/* Profile section */}
         <div className="bg-white rounded-lg shadow p-6 mb-6">
           <div className="flex flex-col md:flex-row gap-6">
@@ -53,8 +60,8 @@ export default function StudentView(){
             <div className="w-full md:w-1/4 flex flex-col items-center">
               <div className="w-32 h-32 rounded-full bg-gray-200 overflow-hidden mb-4">
                 {studentImage && (
-                  <img 
-                    src={studentImage} 
+                  <img
+                    src={studentImage}
                     alt={student.name}
                     className="w-full h-full object-cover"
                   />
@@ -64,11 +71,11 @@ export default function StudentView(){
                 Rasmni o'zgartirish
               </button>
             </div>
-            
+
             {/* Student info */}
             <div className="w-full md:w-3/4">
               <h2 className="text-lg font-semibold text-gray-800 mb-4">Shaxsiy ma'lumotlari:</h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
                 <div className="flex items-start">
                   <div className="w-1/3 text-gray-600">Ism Familiya</div>
@@ -77,7 +84,7 @@ export default function StudentView(){
                     {student.name}
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="w-1/3 text-gray-600">Telefon </div>
                   <div className="w-2/3 font-medium flex items-center">
@@ -85,14 +92,14 @@ export default function StudentView(){
                     {student.phone}
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="w-1/3 text-gray-600">Ota-ona ismi</div>
                   <div className="w-2/3 font-medium">
                     {student.parentName || "-"}
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="w-1/3 text-gray-600">Ota-ona </div>
                   <div className="w-2/3 font-medium flex items-center">
@@ -100,7 +107,7 @@ export default function StudentView(){
                     {student.parentPhone}
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="w-1/3 text-gray-600">Boshlagan sana</div>
                   <div className="w-2/3 font-medium flex items-center">
@@ -108,7 +115,7 @@ export default function StudentView(){
                     {student.startDate}
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="w-1/3 text-gray-600">Tug'ilgan kuni</div>
                   <div className="w-2/3 font-medium flex items-center">
@@ -123,7 +130,7 @@ export default function StudentView(){
 
         {/* Group information */}
         <div className="bg-white rounded-lg shadow p-6 mb-6">
-          <div 
+          <div
             className="flex justify-between items-center cursor-pointer mb-2"
             onClick={() => setIsGroupExpanded(!isGroupExpanded)}
           >
@@ -145,22 +152,22 @@ export default function StudentView(){
                 <div className="w-1/3 text-gray-600">Xona</div>
                 <div className="w-2/3 font-medium">{student.group.room}</div>
               </div>
-              
+
               <div className="flex items-start">
                 <div className="w-1/3 text-gray-600">Narx</div>
                 <div className="w-2/3 font-medium">{student.group.price}</div>
               </div>
-              
+
               <div className="flex items-start">
                 <div className="w-1/3 text-gray-600">Talaba statusi</div>
                 <div className="w-2/3 font-medium">{student.group.status}</div>
               </div>
-              
+
               <div className="flex items-start">
                 <div className="w-1/3 text-gray-600">O'qituvchi</div>
                 <div className="w-2/3 font-medium">{student.group.teacher}</div>
               </div>
-              
+
               <div className="flex items-start">
                 <div className="w-1/3 text-gray-600">Boshlagan vaqti</div>
                 <div className="w-2/3 font-medium">{student.group.startDate}</div>
