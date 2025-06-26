@@ -5,6 +5,7 @@ import ClientCenter from "../Components/Ceo-Dashboard/componets/ClientCenter/Cli
 import Finance from "../Components/Ceo-Dashboard/componets/Finance/Finance";
 import GroupView from "../Components/Ceo-Dashboard/componets/Group/components/GroupView";
 import Group from "../Components/Ceo-Dashboard/componets/Group/Group";
+import GroupArchive from "../Components/Ceo-Dashboard/componets/Group/GroupArchive";
 import LeadCenter from "../Components/Ceo-Dashboard/componets/LeadCenter/LeadCenter";
 import Payment from "../Components/Ceo-Dashboard/componets/Payment/Payment";
 import Settings from "../Components/Ceo-Dashboard/componets/Settings/Settings";
@@ -22,6 +23,9 @@ import CenterStudy from "../Components/SuperCeo-Dashboard/CenterStudy/CenterStud
 import FinanceCeo from "../Components/SuperCeo-Dashboard/FinanceCeo/FinanceCeo";
 import RatesCenter from "../Components/SuperCeo-Dashboard/RatesCenter/RatesCenter";
 import SuperCeoDashboard from "../Components/SuperCeo-Dashboard/SuperCeo-Dashboard";
+import TeacherStudents from "../Components/Teacher-Dashboard/components/Groups/componets/TeacherStudents/TeacherStudents";
+import TeacherGroups from "../Components/Teacher-Dashboard/components/Groups/TeacherGroups";
+import TeacherDashboard from "../Components/Teacher-Dashboard/TeacherDashboar";
 
 export const routes = [
   {
@@ -49,6 +53,24 @@ export const routes = [
     path: "/",
     component: <CeoDashboard />,
   },
+    {
+    name: "Teacher-Dashboard",
+    path: "/Teacher/dashboard",
+    component: <TeacherDashboard />,
+  },
+   {
+    name: "Teacher-Groups",
+    path: "/Teacher/teacher-groups",
+    component: <TeacherGroups />,
+  },
+     {
+    name: "Teacher-Person",
+    path: "/Teacher/groups/person/:ID",
+    component: <TeacherStudents />,
+  },
+
+
+  
   {
     name: "LeadCenter",
     path: "/lead-center",
@@ -83,6 +105,11 @@ export const routes = [
     name: "Group",
     path: "/groups",
     component: <Group />,
+  },
+    {
+    name: "Group",
+    path: "/groupArchive",
+    component: <GroupArchive />,
   },
   {
     name: "Group",

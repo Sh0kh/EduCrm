@@ -1,11 +1,11 @@
-// ArchiveStudents.jsx
+
 
 import React from 'react';
-import { Search, Calendar, ArrowDown } from 'lucide-react';
+import { Search, Download, Plus, Eye, Edit, CreditCard } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 export default function ArchiveStudents() {
-  // Sample data
+
   const students = [
     {
       id: 1,
@@ -27,55 +27,44 @@ export default function ArchiveStudents() {
       leftAt: "2025-03-28",
       comments: "Mavjud emas"
     },
-    // ... (other sample data)
+   
   ];
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden mt-[20px]">
-      {/* Header */}
-      <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-        <div>
-          <h1 className="text-xl font-bold text-gray-800">Birtirgan Talabalar</h1>
-        </div>
-        <div className="flex space-x-2">
-          <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
-            Qidirish
-          </button>
-          <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">
-            Qaytarish
-          </button>
-        </div>
-      </div>
+    <div className="bg-white p-[20px] ">
+   <div className="flex items-center justify-between">
+          <h1 className="text-3xl font-bold text-gray-900">Arxiv Talabalar</h1>
+          <nav className="text-sm text-gray-500 flex gap-4">
+            <span>
+              Arxiv Talabalar
+            </span>
+      
+          </nav>
 
-      {/* Filters */}
-      <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
-        <div className="flex space-x-4">
-          <input
-            type="text"
-            placeholder="Ism orqali qidirish"
-            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <input
-            type="text"
-            placeholder="Fan orqali qidirish"
-            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <div className="relative">
-            <input
-              type="month"
-              defaultValue="2025-06"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <Calendar size={16} className="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500" />
+        </div>
+        <div className="bg-white rounded-lg shadow-sm border mb-6 mt-[30px]">
+          <div className="p-6">
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
+              <div className="relative flex-1 max-w-md">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                <input
+                  type="text"
+                  placeholder="Ism orqali qidirish"
+                
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+              <div className="flex gap-3">
+                <button
+                 
+                  className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-200 font-medium"
+                >
+                  Qaytarish
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <div>
-          <button className="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded flex items-center space-x-2">
-            <ArrowDown size={16} className='mr-[5px]' />
-            Excel
-          </button>
-        </div>
-      </div>
 
       <div className="overflow-x-auto">
         <div className="max-w-full w-[900px]">
