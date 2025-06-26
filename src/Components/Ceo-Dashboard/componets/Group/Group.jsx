@@ -46,7 +46,7 @@ export default function Group() {
   ];
 
   return (
-    <div className='p-6 mt-[10px] min-h-screen'>
+    <div className='p-1 md:p-6 mt-[10px] min-h-screen'>
       <div className="flex justify-between items-center flex-wrap gap-2">
         <h1 className="text-3xl font-bold text-gray-800">Barcha Guruhlar</h1>
         <nav className="text-gray-500 text-sm">

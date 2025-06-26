@@ -3,7 +3,7 @@ import logo from '../UI/logo.png';
 import SmallLogo from '../../Images/photo_2025-06-21_22-42-35.jpg';
 import { Bars3Icon, MagnifyingGlassIcon, XMarkIcon, ArrowsPointingOutIcon, ArrowsPointingInIcon } from "@heroicons/react/24/solid";
 
-export default function Navbar({ onToggleSidebar, isSidebarCollapsed, setActive, active }) {
+export default function Navbar({ mobileActive, isSidebarCollapsed, setActive, active }) {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -54,7 +54,18 @@ export default function Navbar({ onToggleSidebar, isSidebarCollapsed, setActive,
         </div>
         <button
           onClick={setActive}
-          className="p-2 rounded-lg bg-blue-600 hover:bg-blue-700 transition-colors mr-3"
+          className="p-2 rounded-lg hidden lg:block bg-blue-600 hover:bg-blue-700 transition-colors mr-3"
+          aria-label="Toggle sidebar"
+        >
+          {isSidebarCollapsed ? (
+            <Bars3Icon className="h-6 w-6 text-white" />
+          ) : (
+            <Bars3Icon className="h-6 w-6 text-white" />
+          )}
+        </button>
+        <button
+          onClick={mobileActive}
+          className="p-2 rounded-lg block lg:hidden bg-blue-600 hover:bg-blue-700 transition-colors mr-3"
           aria-label="Toggle sidebar"
         >
           {isSidebarCollapsed ? (
@@ -96,7 +107,7 @@ export default function Navbar({ onToggleSidebar, isSidebarCollapsed, setActive,
               <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
                 <span className="text-sm font-medium text-gray-600">MA</span>
               </div>
-              <span className="hidden md:inline-block text-sm font-medium text-gray-700">Muhammadaziz</span>
+              <span className="hidden lg:inline-block text-sm font-medium text-gray-700">Muhammadaziz</span>
               <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
