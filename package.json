@@ -20,6 +20,7 @@
     "@mui/styled-engine-sc": "^7.0.2",
     "axios": "^1.7.7",
     "chart.js": "^4.5.0",
+    "framer-motion": "^12.19.2",
     "gsap": "^3.12.7",
     "gsap-trial": "^3.12.5",
     "lucide-react": "^0.517.0",
