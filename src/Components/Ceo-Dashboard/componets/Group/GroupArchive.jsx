@@ -40,7 +40,7 @@ export default function GroupArchive() {
   ];
 
   return (
-    <div className="bg-white p-[20px] ">
+    <div className="min-h-screen p-[20px] ">
       {/* Header */}
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold text-gray-900">Arxiv Guruhlar</h1>
