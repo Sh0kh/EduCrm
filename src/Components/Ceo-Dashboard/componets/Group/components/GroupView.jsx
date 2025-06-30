@@ -1,4 +1,5 @@
 
+import { Button } from '@material-tailwind/react';
 import { ChevronLeft } from 'lucide-react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
@@ -42,9 +43,9 @@ export default function GroupView() {
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
         <div className="px-6 pt-4  flex justify-between items-center">
           <h2 className='text-2xl'>Barcha malumotlar</h2 >
-          <button onClick={() => navigateBack(-1)} className="text-gray-500 hover:text-gray-800">
-            <ChevronLeft size={20} />
-          </button>
+          <Button color='green'>
+            Talaba qo'shish
+          </Button>
         </div>
 
         <div className="flex gap-4 px-6 py-4">

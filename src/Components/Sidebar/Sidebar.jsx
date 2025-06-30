@@ -32,17 +32,6 @@ const CeoItems = [
         icon: <ChartBarIcon className="h-5 w-5" />,
     },
     {
-        path: "/lead-center",
-        name: "Lead Hisobot",
-        icon: <ChartPieIcon className="h-5 w-5" />,
-    },
-    {
-        path: "/client-center",
-        name: "Mijozlar",
-        icon: <UsersIcon className="h-5 w-5" />,
-        arrow: true,
-    },
-    {
         path: "/student",
         name: "Talabalar",
         icon: <AcademicCapIcon className="h-5 w-5" />,
@@ -72,17 +61,42 @@ const CeoItems = [
         icon: <ClipboardDocumentListIcon className="h-5 w-5" />,
         arrow: true,
     },
+
     {
-        path: "/finance",
         name: "Moliya",
         icon: <CurrencyDollarIcon className="h-5 w-5" />,
-        arrow: true,
+        dropdown: true,
+        subItems: [
+            {
+                path: "/finance",
+                name: "Moliya",
+                icon: <CurrencyDollarIcon className="h-5 w-5" />,
+                arrow: true,
+            },
+            {
+                path: "/mypayment",
+                name: "To'lovlar",
+                icon: <CreditCardIcon className="h-5 w-5" />,
+                arrow: true,
+            },
+        ],
     },
     {
-        path: "/mypayment",
-        name: "To'lovlar",
-        icon: <CreditCardIcon className="h-5 w-5" />,
-        arrow: true,
+        name: "Lead",
+        icon: <UsersIcon className="h-5 w-5" />,
+        dropdown: true,
+        subItems: [
+            {
+                path: "/lead-center",
+                name: "Lead Hisobot",
+                icon: <ChartPieIcon className="h-5 w-5" />,
+            },
+            {
+                path: "/client-center",
+                name: "Mijozlar",
+                icon: <UsersIcon className="h-5 w-5" />,
+            },
+        ],
     },
     {
         name: "Arxiv",
@@ -133,8 +147,8 @@ const SuperCeoItems = [
         path: "/Super-admin/rates-center",
         name: "Tariflar",
         icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1m-9-1a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1M18 6H4.27l2.55 6H15c.33 0 .62-.16.8-.4l3-4c.13-.17.2-.38.2-.6a1 1 0 0 0-1-1m-3 7H6.87l-.77 1.56L6 15a1 1 0 0 0 1 1h11v1H7a2 2 0 0 1-2-2a2 2 0 0 1 .25-.97l.72-1.47L2.34 4H1V3h2l.85 2H18a2 2 0 0 1 2 2c0 .5-.17.92-.45 1.26l-2.91 3.89c-.36.51-.96.85-1.64.85"/></svg>
-        ) 
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1m-9-1a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1M18 6H4.27l2.55 6H15c.33 0 .62-.16.8-.4l3-4c.13-.17.2-.38.2-.6a1 1 0 0 0-1-1m-3 7H6.87l-.77 1.56L6 15a1 1 0 0 0 1 1h11v1H7a2 2 0 0 1-2-2a2 2 0 0 1 .25-.97l.72-1.47L2.34 4H1V3h2l.85 2H18a2 2 0 0 1 2 2c0 .5-.17.92-.45 1.26l-2.91 3.89c-.36.51-.96.85-1.64.85" /></svg>
+        )
     },
     {
         path: "/Super-admin/finance-center",
@@ -174,8 +188,8 @@ const TeacherItems = [
 
 export default function SideBard({ active, mobileActive, onClose }) {
     const role = localStorage.getItem("role");
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-    
+    const [dropdownOpen, setDropdownOpen] = useState(null);
+
     let menuItems;
     if (role === "Super-Ceo") {
         menuItems = SuperCeoItems;
@@ -185,8 +199,8 @@ export default function SideBard({ active, mobileActive, onClose }) {
         menuItems = CeoItems;
     }
 
-    const toggleDropdown = () => {
-        setDropdownOpen(!dropdownOpen);
+    const toggleDropdown = (name) => {
+        setDropdownOpen((prev) => (prev === name ? null : name));
     };
 
     return (
@@ -203,7 +217,7 @@ export default function SideBard({ active, mobileActive, onClose }) {
                                     {item.dropdown ? (
                                         <>
                                             <ListItem
-                                                onClick={!active ? toggleDropdown : undefined}
+                                                onClick={() => toggleDropdown(item.name)}
                                                 className={`rounded-lg flex items-center justify-between transition-all duration-300 ease-in-out cursor-pointer hover:bg-blue-50 ${!active ? "w-full" : "w-[45px] h-[46px]"
                                                     }`}
                                             >
@@ -218,7 +232,7 @@ export default function SideBard({ active, mobileActive, onClose }) {
                                                 </div>
                                                 {!active && (
                                                     <div className="transition-transform duration-300">
-                                                        {dropdownOpen ? (
+                                                        {dropdownOpen === item.name ? (
                                                             <ChevronDownIcon className="h-4 w-4" />
                                                         ) : (
                                                             <ChevronRightIcon className="h-4 w-4" />
@@ -227,7 +241,7 @@ export default function SideBard({ active, mobileActive, onClose }) {
                                                 )}
                                             </ListItem>
                                             {!active && (
-                                                <Collapse open={dropdownOpen}>
+                                                <Collapse open={dropdownOpen === item.name}>
                                                     <div className="ml-4 border-l-2 border-blue-100 pl-4 py-2 space-y-1">
                                                         {item.subItems?.map((subItem) => (
                                                             <NavLink
@@ -301,8 +315,8 @@ export default function SideBard({ active, mobileActive, onClose }) {
                                 <div key={item.name || index}>
                                     {item.dropdown ? (
                                         <>
-                                            <ListItem 
-                                                onClick={toggleDropdown}
+                                            <ListItem
+                                                onClick={() => toggleDropdown(item.name)}
                                                 className="flex items-center justify-between py-3 px-4 rounded-lg hover:bg-blue-50 transition-colors duration-200 cursor-pointer"
                                             >
                                                 <div className="flex items-center gap-3">
@@ -310,14 +324,14 @@ export default function SideBard({ active, mobileActive, onClose }) {
                                                     <span>{item.name}</span>
                                                 </div>
                                                 <div className="transition-transform duration-300">
-                                                    {dropdownOpen ? (
+                                                    {dropdownOpen === item.name ? (
                                                         <ChevronDownIcon className="h-4 w-4" />
                                                     ) : (
                                                         <ChevronRightIcon className="h-4 w-4" />
                                                     )}
                                                 </div>
                                             </ListItem>
-                                            <Collapse open={dropdownOpen}>
+                                            <Collapse open={dropdownOpen === item.name}>
                                                 <div className="ml-6 border-l-2 border-blue-100 pl-4 py-2 space-y-1">
                                                     {item.subItems?.map((subItem) => (
                                                         <NavLink

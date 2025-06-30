@@ -30,7 +30,7 @@ const centers = [
 
 export default function CenterStudy() {
     return (
-        <div className="p-6">
+        <div className="p-6 min-h-screen">
             <div className="flex items-center justify-between">
                 <Typography variant="h4" className=" font-bold text-blue-700 mb-8">
                     Ta'lim markazlari ro'yxati
